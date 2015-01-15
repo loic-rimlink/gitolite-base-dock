@@ -20,6 +20,9 @@ RUN mkdir -p /var/run/sshd
 RUN umask 0022
 RUN mkdir -p /usr/local/src
 RUN git clone git://github.com/sitaramc/gitolite /usr/local/src/gitolite
+WORKDIR /usr/local/src/gitolite 
+RUN git checkout v3.6.2
+WORKDIR /
 
 # install gitolite...
 RUN /usr/local/src/gitolite/install -to /usr/local/bin
